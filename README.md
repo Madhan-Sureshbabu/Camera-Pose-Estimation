@@ -1,22 +1,19 @@
 # Camera Pose Estimation
 
- - In this project, different camera pose estimation techniques namely 2D-2D epipolar constraint based method, 3D-2D Perspective-N-Point (PnP) method and 3D-3D Iterative Closest Point (ICP) method have been implemented and comparisons have been drawn on their accuracy and computation time.
-
- - A pair of RGBD image pairs have been used for this purpose.
+ - In this project, different camera pose estimation techniques namely 2D-2D epipolar constraint based method, 3D-2D Perspective-n-Point (PnP) and 3D-3D Iterative Closest Point (ICP) methods have been implemented on a representative pair of RGBD images.
 
 ## Implementation details
 
 ### Feature point extraction and matching
 
- - ORB feature points (Oriented FAST keypoints and Rotated BRIEF descriptors) were extracted. <br />
- - Matching was performed using the bruteforce matcher. <br />
+ - ORB feature points (Oriented FAST keypoints and Rotated BRIEF descriptors) were extracted from the images. <br />
+ - Matching was performed using the Bruteforce matcher. <br />
 
 ### 2D-2D Motion Estimation
 
  - The matched feature points were then used to find the Essential matrix(E) using the RANSAC algorithm. <br />
  - Singular Value Decomposition was performed on the E to obtain its orthogonal matrices and singular value matrix. <br />
- - From SVD and the epipolar constriatins, E = UΣV' and E = t^ R, where t and R are the tranlation vector and rotation matrix to be estimated.  <br />
- - The above relations were used to obtain t and R. Four different solutions are obtained from which the only solution that gives positive depth value when tested with a candidate point is chosen as the essential matrix. <br />
+ - Solving for E using the SVD and the epipolar constriatins we have, E = UΣV' and E = t^ R, where t and R are the tranlation vector and rotation matrix to be estimated. Four different solutions are obtained from which the only solution that gives positive depth value when tested with a candidate point is chosen as the essential matrix. <br />
 
 ### 3D-2D Motion Estimation
 
