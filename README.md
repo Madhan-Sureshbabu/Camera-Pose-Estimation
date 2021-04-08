@@ -12,8 +12,8 @@
 ### 2D-2D Motion Estimation
 
  - The matched feature points were then used to find the Essential matrix(E) using the RANSAC algorithm. <br />
- - Singular Value Decomposition was performed on the E to obtain its orthogonal matrices and singular value matrix. <br />
- - Solving for E using the SVD and the epipolar constriatins we have, E = UΣV' and E = t^ R, where t and R are the tranlation vector and rotation matrix to be estimated. Four different solutions are obtained from which the only solution that gives positive depth value when tested with a candidate point is chosen as the essential matrix. <br />
+ - Singular Value Decomposition was performed on E to obtain its orthogonal matrices and singular value matrix. <br />
+ - Solving for E using the SVD and the epipolar constriatins we have, E = UΣV' and E = t^ R, where t and R are the translation vector and rotation matrix to be estimated. Four different solutions are obtained from which the only solution that gives positive depth value when tested with a candidate point is chosen as the essential matrix. <br />
 
 ### 3D-2D Motion Estimation
 
